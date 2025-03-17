@@ -1,0 +1,9 @@
+openai
+python-dotenv
+streamlit
+pandas
+numpy
+matplotlib
+networkx
+pypdf2
+python-docx
