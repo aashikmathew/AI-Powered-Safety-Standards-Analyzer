@@ -4,6 +4,8 @@
 
 The AI-Powered Safety Standards Analyzer is a tool designed to help standards organizations, manufacturers, and safety professionals identify gaps in existing safety standards, particularly for emerging technologies. Using OpenAI's API, this application analyzes safety standards documents and compares them against research papers and incident reports to identify potential areas where standards need to be updated or expanded.
 
+[![Demo Video][https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://youtu.be/eIJ6B0Mvu2g))
+
 ## Features
 
 - **Document Processing**: Upload and analyze safety standards documents in PDF, DOCX, or TXT formats
