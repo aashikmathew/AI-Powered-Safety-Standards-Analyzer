@@ -188,4 +188,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions or support, please contact [aashikmathews@gmail.com](mailto:aashikmathewss@gmail.com)
+For questions or support, please contact [aashikmathewss@gmail.com](mailto:aashikmathewss@gmail.com)

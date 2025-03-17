@@ -21,7 +21,7 @@ class DocumentProcessor:
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.documents = []
         self.sections = []
-        self.embeddings = []
+        self.embeddings = []  # Initialize as a list, not a NumPy array
         self.document_db_path = "data/documents.json"
         self.sections_db_path = "data/sections.json"
         self.embeddings_db_path = "data/embeddings.npy"
@@ -44,9 +44,13 @@ class DocumentProcessor:
                     self.sections = json.load(f)
             
             if os.path.exists(self.embeddings_db_path):
-                self.embeddings = np.load(self.embeddings_db_path)
+                # Convert NumPy array to list when loading
+                embeddings_array = np.load(self.embeddings_db_path)
+                self.embeddings = embeddings_array.tolist()
         except Exception as e:
             print(f"Error loading data: {e}")
+            # Ensure embeddings is always a list
+            self.embeddings = []
     
     def _save_data(self):
         """Save document data to files."""
@@ -58,7 +62,9 @@ class DocumentProcessor:
                 json.dump(self.sections, f)
             
             if len(self.embeddings) > 0:
-                np.save(self.embeddings_db_path, np.array(self.embeddings))
+                # Convert list to NumPy array when saving
+                embeddings_array = np.array(self.embeddings)
+                np.save(self.embeddings_db_path, embeddings_array)
         except Exception as e:
             print(f"Error saving data: {e}")
     
@@ -105,7 +111,7 @@ class DocumentProcessor:
             
             # Add section to database
             self.sections.append(section)
-            self.embeddings.append(embedding)
+            self.embeddings.append(embedding)  # This will work now because embeddings is a list
         
         # Save updated data
         self._save_data()
